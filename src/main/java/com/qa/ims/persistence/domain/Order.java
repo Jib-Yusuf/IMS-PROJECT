@@ -5,110 +5,93 @@ import java.util.List;
 import java.util.Objects;
 
 public class Order {
-	
+
 	private Long id;
-	private Customer fkCustomerid;
-	private Double totalPrice;
-	private String datePlaced;
+	private Customer customerId;
+	private Item itemName;
+	private String dateOrdered;
 	private List<Item> ordersItems = new ArrayList<>();
+	private double totalPrice;
 	
-	public Order() {
-		
-		
-	}
-
-
 	
-	public Order(Customer fkCustomerId, Double totalPrice, String datePlaced, List<Item> orderItems) {
+	public Order(Long id, Customer customerId, Item itemName, String dateOrdered) {
 		super();
-		this.fkCustomerid = fkCustomerId;
-		this.totalPrice = totalPrice;
-		this.ordersItems = orderItems;
-	
-	}
-	
-	public Order(Long id, Customer fkCustomerId, List<Item> orderItems, Double totalPrice, String datePlaced) {
-		super();
-		this.id = id;
-		this.fkCustomerid = fkCustomerId;
-		this.totalPrice = totalPrice;
-		this.ordersItems = orderItems;
-	}
-	
-	public Order(Long id, Customer fkCustomerId, Double totalPrice, String datePlaced, List<Item> orderItems) {
-		super();
-		this.id = id;
-		this.fkCustomerid = fkCustomerId;
-		this.totalPrice = totalPrice;
-		this.ordersItems = orderItems;
-	}
-	public Order(Customer fkCustomerId) {
-		this.setFkCustomerID(fkCustomerId);
-	}
-	
-	public Order(Long id, Customer fkCustomerid) {
 		this.setId(id);
-		this.setFkCustomerID(fkCustomerid);
-		
-			
+		this.setCustomerId(customerId);
+		this.setItemName(itemName);
+		this.setDateOrdered(dateOrdered);
 	}
 	
+	public Order(Customer customerId) {
+		this.setCustomerId(customerId);
+	}
+
+	public Order(Long id, Customer customerId) {
+		this.setId(id);
+		this.setCustomerId(customerId);
+	}
+	
+	public Order(Long id, List<Item> ordersItems) {
+		super();
+		this.id = id;
+		this.setOrdersItems(ordersItems);
+	}
+	
+	
+
+
+
+	public Order(Long id, Customer customer, double totalPrice, Long customer_id, List<Item> itemList) {
+		this.id = id;
+		this.customerId = customer;
+		this.setTotalPrice(totalPrice);
+		this.ordersItems = itemList;
+	}
+
+
 	public Long getId() {
-		return this.id;
+		return id;
 	}
-	
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	public Customer getFKCustomerId() {
-		return this.fkCustomerid;
+	public Customer getCustomerId() {
+		return customerId;
 	}
-	
-	public void setFkCustomerID(Customer fkCustomerId) {
-		this.fkCustomerid = fkCustomerId;
+	public void setCustomerId(Customer customerId) {
+		this.customerId = customerId;
 	}
-	
-	public Double getTotalPrice() {
-		return totalPrice;
+	public Item getItemName() {
+		return itemName;
 	}
-	
-	public void setTotalPrice(Double totalPrice) {
-		this.totalPrice = totalPrice;
+	public void setItemName(Item itemName) {
+		this.itemName = itemName;
 	}
-	
-	public String getDatePlace() {
-		return datePlaced;
+	public String getDateOrdered() {
+		return dateOrdered;
 	}
-	
-	public void setDatePlaced(String date) {
-		this.datePlaced = date;
+	public void setDateOrdered(String dateOrdered) {
+		this.dateOrdered = dateOrdered;
 	}
-	
+
 	public List<Item> getOrdersItems() {
 		return ordersItems;
 	}
-	
-	public void setOrdersItem(List<Item> orderItems) {
-		this.ordersItems = orderItems;
+
+	public void setOrdersItems(List<Item> ordersItems) {
+		this.ordersItems = ordersItems;
 	}
-
-
 
 	@Override
 	public String toString() {
-		return "Order [id=" + id + ", fkCustomerid=" + fkCustomerid + ", totalPrice=" + totalPrice + ", datePlaced="
-				+ datePlaced + ", ordersItems=" + ordersItems + "]";
+		return "Order [id=" + id + ", customerId=" + customerId + ", itemName=" + itemName + ", dateOrdered="
+				+ dateOrdered + ", ordersItems=" + ordersItems + "]";
 	}
-
-
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(datePlaced, fkCustomerid, id, ordersItems, totalPrice);
+		return Objects.hash(customerId, dateOrdered, id, itemName, ordersItems);
 	}
-
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -119,11 +102,24 @@ public class Order {
 		if (getClass() != obj.getClass())
 			return false;
 		Order other = (Order) obj;
-		return Objects.equals(datePlaced, other.datePlaced) && Objects.equals(fkCustomerid, other.fkCustomerid)
-				&& Objects.equals(id, other.id) && Objects.equals(ordersItems, other.ordersItems)
-				&& Objects.equals(totalPrice, other.totalPrice);
+		return Objects.equals(customerId, other.customerId) && Objects.equals(dateOrdered, other.dateOrdered)
+				&& Objects.equals(id, other.id) && Objects.equals(itemName, other.itemName)
+				&& Objects.equals(ordersItems, other.ordersItems);
 	}
-}
+
+	public double getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+	
+
+
+	}
+
 	
 	
 	

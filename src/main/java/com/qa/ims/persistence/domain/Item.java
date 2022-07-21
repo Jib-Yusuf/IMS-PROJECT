@@ -6,26 +6,17 @@ public class Item {
 	
 	private Long id;
 	private String itemName;
-	private String itemCategory;
-	private Float price;
-	
-	
-	public Item(String itemName, String itemCategory, Float price) {
-		super();
-			this.itemName = itemCategory;
-			this.itemCategory = itemCategory;
-			this.price = price;
-	
+	private double price;
+
+	public Item(String itemName, double price) {
+		this.setItemName(itemName);
+		this.setPrice(price);
 	}
-	
-	public Item(long id,String itemName, String itemCategory,Float price) {
-		super();
-		this.id = id;
-		this.itemName = itemName;
-		this.itemCategory = itemCategory;
-		this.price = price;
-		
-			
+
+	public Item(Long id, String itemName, double price) {
+		this.setId(id);
+		this.setItemName(itemName);
+		this.setPrice(price);
 	}
 
 	public Long getId() {
@@ -44,31 +35,22 @@ public class Item {
 		this.itemName = itemName;
 	}
 
-	public String getItemCategory() {
-		return itemCategory;
-	}
-
-	public void setItemCategory(String itemCategory) {
-		this.itemCategory = itemCategory;
-	}
-
-	public Float getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(Float price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
 	@Override
 	public String toString() {
-		return "Item [id=" + id + ", itemName=" + itemName + ", itemCategory=" + itemCategory + ", price=" + price
-				+ "]";
+		return "id:" + id + " item name:" + itemName + " price:" + price;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, itemCategory, itemName, price);
+		return Objects.hash(id, itemName, price);
 	}
 
 	@Override
@@ -80,9 +62,7 @@ public class Item {
 		if (getClass() != obj.getClass())
 			return false;
 		Item other = (Item) obj;
-		return Objects.equals(id, other.id) && Objects.equals(itemCategory, other.itemCategory)
-				&& Objects.equals(itemName, other.itemName) && Objects.equals(price, other.price);
+		return Objects.equals(id, other.id) && Objects.equals(itemName, other.itemName)
+				&& Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price);
 	}
-	
-
 }

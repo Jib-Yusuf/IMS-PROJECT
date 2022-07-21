@@ -6,24 +6,21 @@ public class Item {
 	
 	private Long id;
 	private String itemName;
-	private String itemCategory;
-	private Float price;
+	private float price;
 	
 	
-	public Item(String itemName, String itemCategory, Float price) {
+	public Item(String itemName, float price) {
 		super();
-			this.itemName = itemCategory;
-			this.itemCategory = itemCategory;
-			this.price = price;
+			this.setItemName(itemName);
+			this.setPrice(price);
 	
 	}
 	
-	public Item(long id,String itemName, String itemCategory,Float price) {
+	public Item(long id,String itemName, Float price) {
 		super();
-		this.id = id;
-		this.itemName = itemName;
-		this.itemCategory = itemCategory;
-		this.price = price;
+		this.setId(id);
+		this.setItemName(itemName);
+		this.setPrice(price);
 		
 			
 	}
@@ -44,31 +41,23 @@ public class Item {
 		this.itemName = itemName;
 	}
 
-	public String getItemCategory() {
-		return itemCategory;
-	}
-
-	public void setItemCategory(String itemCategory) {
-		this.itemCategory = itemCategory;
-	}
-
-	public Float getPrice() {
+	public float getPrice() {
 		return price;
 	}
 
-	public void setPrice(Float price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 
 	@Override
 	public String toString() {
-		return "Item [id=" + id + ", itemName=" + itemName + ", itemCategory=" + itemCategory + ", price=" + price
+		return "Item [id=" + id + ", itemName=" + itemName + ", price=" + price
 				+ "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, itemCategory, itemName, price);
+		return Objects.hash(id, itemName, price);
 	}
 
 	@Override
@@ -80,8 +69,8 @@ public class Item {
 		if (getClass() != obj.getClass())
 			return false;
 		Item other = (Item) obj;
-		return Objects.equals(id, other.id) && Objects.equals(itemCategory, other.itemCategory)
-				&& Objects.equals(itemName, other.itemName) && Objects.equals(price, other.price);
+		return Objects.equals(id, other.id) && Objects.equals(itemName, other.itemName) 
+				&& Objects.equals(price, other.price);
 	}
 	
 

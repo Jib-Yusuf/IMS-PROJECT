@@ -54,7 +54,28 @@ Explain how to run the automated tests for this system. Break down into which te
 Explain what these tests test, why and how to run them
 
 ```
-https://github.com/Jib-Yusuf/IMS-PROJECT.git
+
+
+    @Test
+    public void firstConstructorTEST() {
+        Item item = new Item("Samsung",  799.99F);
+        assertEquals("Samsung", item.getItemName());
+        assertEquals(799.99, item.getPrice(), 0.02);
+    }
+
+     @Test
+    public void setIdTEST() {
+        Item item = new Item(1L, "Samsung", 799.99F);
+        item.setId(2L);
+        assertEquals(Long.valueOf("2"), item.getId());
+
+    }
+
+    @Test
+    public void setItemNameTEST() {
+        Item item = new Item(1L, "Samsung", 799.99F);
+        item.setItemName("Samsung");
+        assertEquals("Samsung", item.getItemName());
 ```
 
 ### Integration Tests 

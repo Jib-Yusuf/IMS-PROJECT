@@ -52,6 +52,7 @@ public class Utils {
 		return doubleInput;
 	}
 
+
 	public Float getFloat() {
 		String input = null;
 		Float floatInput = null;
@@ -65,5 +66,6 @@ public class Utils {
 		} while (floatInput == null);
 		return floatInput;
 	}
+
 
 }

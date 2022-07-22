@@ -1,6 +1,8 @@
 package com.qa.ims.persistence.domain;
 
+
 import static org.junit.Assert.assertEquals;
+
 
 import org.junit.Test;
 
@@ -12,6 +14,7 @@ public class CustomerTest {
 	public void testEquals() {
 		EqualsVerifier.simple().forClass(Customer.class).verify();
 	}
+
 
 	public void toStringTest() {
 		Customer customer = new Customer(1L, "James", "Bay");
@@ -34,5 +37,6 @@ public class CustomerTest {
 		assertEquals("James", customer.getFirstName());
 		assertEquals("Bay", customer.getSurname());
 	}
+
 
 }

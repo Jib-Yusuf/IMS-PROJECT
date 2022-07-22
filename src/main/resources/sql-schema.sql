@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS `ims`.`customers` (
     PRIMARY KEY (`id`)
 );
 
+
 CREATE TABLE IF NOT EXISTS `ims`.`items` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(40) DEFAULT NULL,
@@ -29,3 +30,4 @@ CREATE TABLE IF NOT EXISTS `ims`.`orders` (
 );
 
 drop table ims.orders;
+
